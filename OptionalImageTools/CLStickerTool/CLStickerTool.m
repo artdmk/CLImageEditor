@@ -150,6 +150,18 @@ static NSString* const kCLStickerToolDeleteIconName = @"deleteIconAssetsName";
             x += W;
         }
     }
+    //
+    UITextView *textView = [UITextView new];
+    textView.font = [UIFont systemFontOfSize:12];
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:@"All emojis designed by OpenMoji – the open-source emoji and icon project. License: CC BY-SA 4.0"];
+    [attributedText addAttribute: NSLinkAttributeName value: @"https://openmoji.org/" range: NSMakeRange(23, 8)];
+    [attributedText addAttribute: NSLinkAttributeName value: @"https://creativecommons.org/licenses/by-sa/4.0/#" range: NSMakeRange(83, 12)];
+    textView.attributedText = attributedText;
+    textView.backgroundColor = UIColor.whiteColor;
+    textView.editable = NO;
+    textView.frame = CGRectMake(16, 50, x, H);
+    [_menuScroll addSubview:textView];
+    //
     _menuScroll.contentSize = CGSizeMake(MAX(x, _menuScroll.frame.size.width+1), 0);
 }
 
